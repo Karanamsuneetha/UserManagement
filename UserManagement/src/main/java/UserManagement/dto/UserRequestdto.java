@@ -11,7 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 public class UserRequestdto {
-	private long id;
 	private String username;
 	private String email;
 	private String password;
@@ -24,10 +23,9 @@ public class UserRequestdto {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public UserRequestdto(long id, String username, String email, String password, String mobile, LocalDate dob,
+	public UserRequestdto(String username, String email, String password, String mobile, LocalDate dob,
 			Gender gender, String address, String dpUrl) {
 		super();
-		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
@@ -36,12 +34,6 @@ public class UserRequestdto {
 		this.gender = gender;
 		this.address = address;
 		this.dpUrl = dpUrl;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
 	}
 	public String getUsername() {
 		return username;
@@ -93,7 +85,7 @@ public class UserRequestdto {
 	}
 	@Override
 	public String toString() {
-		return "UserRequestdto [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
+		return "UserRequestdto [username=" + username + ", email=" + email + ", password=" + password
 				+ ", mobile=" + mobile + ", dob=" + dob + ", gender=" + gender + ", address=" + address + ", dpUrl="
 				+ dpUrl + "]";
 	}

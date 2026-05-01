@@ -2,6 +2,7 @@ package UserManagement.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import UserManagement.dto.UserRequestdto;
 import UserManagement.dto.UserResponsedto;
+import UserManagement.dto.UserUpdateRequestdto;
 import UserManagement.service.UserService;
 
 @RestController
 public class UsersController {
-	UserService service;
+	private final UserService service;
 
 	public UsersController(UserService service) {
-		super();
 		this.service = service;
 	}
 	@PostMapping("/register")
@@ -36,11 +37,11 @@ public class UsersController {
 		
 	}
 	@PutMapping("/updateUser")
-	public String updateUser(@RequestBody UserRequestdto user) {
-		return service.updateUser(user);
+	public UserResponsedto updateUser(@RequestBody UserUpdateRequestdto userDto) {
+		return service.updateUser(userDto);
 	}
 	
-	@GetMapping("/deleteUser/{id}")
+	@DeleteMapping("/deleteUser/{id}")
 	public String deleteUser(@PathVariable Long id) {
 		return service.deleteUser(id);
 	}

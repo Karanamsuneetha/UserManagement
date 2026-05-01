@@ -2,15 +2,17 @@ package UserManagement.service;
 
 import java.util.List;
 
+
 import UserManagement.dto.UserRequestdto;
 import UserManagement.dto.UserResponsedto;
-import UserManagement.entity.Users;
+import UserManagement.dto.UserUpdateRequestdto;
+import UserManagement.entity.User;
 
 public interface UserService{
 	String register(UserRequestdto user);
 	UserResponsedto searchUser(Long id);
 	List<UserResponsedto>viewAllUsers();
-	String updateUser(UserRequestdto user);
+    UserResponsedto updateUser(UserUpdateRequestdto userDto);
 	String deleteUser(Long id);
 
 }

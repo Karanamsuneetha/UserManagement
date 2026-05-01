@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,12 +43,12 @@ public class Users {
 	@Column(length = 500)
 	private String dpUrl;
 
-	public Users() {
+	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Users(long id, String username, String email, String password, String mobile, LocalDate dob, Gender gender,
+	public User(long id, String username, String email, String password, String mobile, LocalDate dob, Gender gender,
 			String address, String dpUrl) {
 		super();
 		this.id = id;
